@@ -1,4 +1,3 @@
-
 name: Build RiverGuard APK and Release
 
 on:
@@ -23,58 +22,90 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Set up Java
+      - name: Set up Java 21
         uses: actions/setup-java@v4
         with:
-          distribution: zulu
+          distribution: "zulu"
           java-version: "21"
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Verify Android SDK
+        shell: pwsh
+        run: |
+          if (-not $env:ANDROID_HOME) {
+            if ($env:ANDROID_SDK_ROOT) {
+              $env:ANDROID_HOME = $env:ANDROID_SDK_ROOT
+            } else {
+              throw "Android SDK was not found on the runner."
+            }
+          }
 
-      - name: Install dependencies
+          Write-Host "Android SDK: $env:ANDROID_HOME"
+
+          if (-not (Test-Path $env:ANDROID_HOME)) {
+            throw "Android SDK directory does not exist: $env:ANDROID_HOME"
+          }
+
+      - name: Install mobile dependencies
         working-directory: RiverGuard/mobile
         shell: cmd
         run: npm install
 
-      - name: Run build script
+      - name: Run existing build script
         working-directory: RiverGuard/mobile
         shell: cmd
         run: call build-apk.bat
 
-      - name: Build APK
+      - name: Build debug APK with Gradle
         working-directory: RiverGuard/mobile/android
         shell: cmd
         run: gradlew.bat assembleDebug --stacktrace
 
-      - name: Find APK
+      - name: Find and stage APK
         shell: pwsh
         run: |
-          $apk = Get-ChildItem `
-            -Path "RiverGuard/mobile/android" `
-            -Filter "*.apk" `
-            -Recurse `
-            -File |
-            Where-Object {
-              $_.FullName -match '[\\/]build[\\/]outputs[\\/]apk[\\/]'
-            }
+          $root = "RiverGuard/mobile/android"
+          $output = "release-apks"
 
-          if (-not $apk) {
-            throw "No APK found. Check the Gradle build logs."
+          $apks = @(
+            Get-ChildItem -Path $root -Filter "*.apk" -Recurse -File |
+              Where-Object {
+                $_.FullName -match '[\\/]build[\\/]outputs[\\/]apk[\\/]'
+              }
+          )
+
+          if ($apks.Count -eq 0) {
+            Write-Host "No APK found."
+            Write-Host "Searching Android build outputs..."
+
+            Get-ChildItem -Path $root -Directory -Recurse -ErrorAction SilentlyContinue |
+              Where-Object {
+                $_.FullName -match '[\\/]build[\\/]outputs'
+              } |
+              Select-Object -ExpandProperty FullName
+
+            throw "APK was not generated. Check the Gradle build output."
           }
 
-          New-Item -ItemType Directory -Path "release-apks" -Force | Out-Null
+          New-Item -ItemType Directory -Path $output -Force | Out-Null
 
-          foreach ($file in $apk) {
-            Copy-Item $file.FullName "release-apks" -Force
-            Write-Host "Found APK: $($file.FullName)"
+          foreach ($apk in $apks) {
+            $destination = Join-Path $output $apk.Name
+            Copy-Item $apk.FullName $destination -Force
+            Write-Host "APK staged: $destination"
           }
 
-      - name: Create Release and upload APK
+      - name: Create GitHub Release and upload APK
         uses: softprops/action-gh-release@v2
         with:
           tag_name: RiverGuard-Mobile-v${{ github.run_number }}
           name: RiverGuard Mobile v${{ github.run_number }}
-          body: "Automatically built RiverGuard Android APK."
+          body: |
+            ## RiverGuard Mobile
+
+            Automatically built Android APK.
+
+            - Commit: ${{ github.sha }}
+            - Build number: ${{ github.run_number }}
           files: release-apks/*.apk
           fail_on_unmatched_files: true
+          generate_release_notes: true
