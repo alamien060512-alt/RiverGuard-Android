@@ -1,4 +1,4 @@
-name: Build
+name: Build 
 
 on:
   push:
@@ -17,13 +17,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu' 
+          distribution: 'zulu'
           java-version: '21'
 
       - name: Run build script
         working-directory: RiverGuard/mobile
         run: .\build-apk.bat
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RiverGuard-Mobile-APK-v${{ github.run_number }}
+          path: RiverGuard/release
