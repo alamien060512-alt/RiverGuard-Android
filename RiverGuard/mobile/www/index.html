@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RiverGuard</title>
+<style>
+:root{--bg:#f2f6f9;--card:#fff;--ink:#12212b;--mute:#5b6b76;--acc:#1b8bb5;--line:#dbe4ea;--err:#b3261e}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1a22;--card:#14252f;--ink:#e6eef3;--mute:#93a6b2;--line:#25404f}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:16px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;max-width:420px;width:100%}
+img{width:84px;height:84px;border-radius:50%;display:block;margin:0 auto 8px}h1{font-size:1.3rem;text-align:center;margin:0 0 4px}
+p{color:var(--mute);font-size:.9rem}label{font-size:.85rem;color:var(--mute)}
+input,button{font:inherit;width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);margin-top:6px}
+input{background:var(--bg);color:var(--ink)}button{background:var(--acc);color:#fff;border-color:var(--acc);margin-top:12px}
+#msg{color:var(--err);font-size:.85rem;min-height:1.2em}
+</style></head><body><div class="c">
+<img src="otter.png" alt=""><h1>RiverGuard</h1>
+<p>Connect to the RiverGuard app running on your laptop. Both devices must be on the same private Wi‑Fi, and <b>Start RiverGuard</b> must be running.</p>
+<label for="a">Laptop address</label>
+<input id="a" inputmode="url" autocapitalize="off" autocomplete="off" placeholder="192.168.1.20:8501">
+<button id="go">Connect</button><p id="msg"></p>
+<p>First time? On the laptop open <i>Station settings → Create pairing code</i>, then enter the 8‑digit code on the next screen. Android back button (from the app) returns here.</p>
+</div>
+<script>
+const K="rg_server",$=s=>document.querySelector(s);
+const norm=v=>{v=v.trim().replace(/\/+$/,"");if(!v)return"";if(!/^https?:\/\//i.test(v))v="http://"+v;try{const u=new URL(v);if(!u.port&&u.protocol==="http:")u.port="8501";return u.origin}catch{return""}};
+const get=()=>{try{return localStorage.getItem(K)||""}catch{return""}};
+async function reachable(o){const c=new AbortController(),t=setTimeout(()=>c.abort(),5000);try{await fetch(o+"/",{mode:"no-cors",signal:c.signal,cache:"no-store"});return true}catch{return false}finally{clearTimeout(t)}}
+async function go(v,auto){const o=norm(v);if(!o){$("#msg").textContent="Enter an address like 192.168.1.20:8501";return}
+ $("#msg").textContent="Connecting…";$("#go").disabled=true;
+ if(await reachable(o)){try{localStorage.setItem(K,o)}catch{}location.replace(o+"/")}
+ else{$("#msg").textContent="Cannot reach "+o+". Check Wi‑Fi, that Start RiverGuard is running, and that Windows Firewall allows port 8501 on private networks.";$("#go").disabled=false}}
+$("#go").onclick=()=>go($("#a").value);
+$("#a").addEventListener("keydown",e=>e.key==="Enter"&&go($("#a").value));
+const saved=get();$("#a").value=saved.replace(/^https?:\/\//,"");
+if(saved&&!/change=1/.test(location.search))go(saved,true);
+</script></body></html>
