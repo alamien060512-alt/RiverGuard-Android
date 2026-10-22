@@ -1,0 +1,87 @@
+name: Build APK & Release
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: RiverGuard/mobile
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: RiverGuard/mobile/package-lock.json
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      # The android/app module is not always committed; regenerate it if missing.
+      - name: Ensure Android app module exists
+        run: |
+          if [ ! -d android/app ]; then
+            echo "android/app missing -> regenerating Capacitor Android project"
+            rm -rf android
+            npx cap add android
+          fi
+
+      - name: Sync web assets into Android project
+        run: npx cap sync android
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Build debug APK
+        working-directory: RiverGuard/mobile/android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Name the APK
+        id: apk
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          NAME="RiverGuard-v${VERSION}-build${{ github.run_number }}.apk"
+          cp android/app/build/outputs/apk/debug/app-debug.apk "$NAME"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RiverGuard-apk
+          path: RiverGuard/mobile/${{ steps.apk.outputs.name }}
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('build-{0}', github.run_number) }}
+          name: RiverGuard ${{ steps.apk.outputs.version }} (build ${{ github.run_number }})
+          body: |
+            Automated build of commit ${{ github.sha }}.
+            Download the APK below and install it on your Android device (enable "Install unknown apps").
+          files: RiverGuard/mobile/${{ steps.apk.outputs.name }}
+          make_latest: true
