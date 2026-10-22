@@ -1,11 +1,8 @@
 
-name: Build Mobile APK
+name: Build Mobile APK and Release
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -14,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  build-and-release:
     runs-on: windows-latest
 
     steps:
@@ -27,48 +24,65 @@ jobs:
           distribution: zulu
           java-version: '21'
 
-      - name: Run build script
+      - name: Build Android APK
         working-directory: RiverGuard/mobile
-        run: .\build-apk.bat
+        shell: cmd
+        run: build-apk.bat
 
-      - name: Verify APK output
-        id: apk
+      - name: Find generated APK files
+        id: find-apk
         shell: pwsh
         run: |
+          $root = "RiverGuard/mobile"
+
           $apks = @(
-            Get-ChildItem `
-              -Path "RiverGuard/mobile/android/app/build/outputs/apk" `
+            Get-ChildItem -Path $root `
               -Filter "*.apk" `
               -Recurse `
-              -File
+              -File |
+              Where-Object {
+                $_.FullName -match '[\\/]build[\\/]outputs[\\/]apk[\\/]'
+              }
           )
 
           if ($apks.Count -eq 0) {
-            Write-Error "No APK found. Check build-apk.bat and the Android build output."
+            Write-Host "No APK was found."
+            Write-Host "Searching for Android build outputs..."
+
+            Get-ChildItem -Path $root -Recurse -Directory |
+              Where-Object {
+                $_.FullName -match 'build[\\/]outputs'
+              } |
+              Select-Object -ExpandProperty FullName
+
+            Write-Error "APK build failed or the output path is different."
             exit 1
           }
 
-          $apks | ForEach-Object {
-            Write-Host "Found APK: $($_.FullName)"
+          $files = @(
+            $apks | ForEach-Object { $_.FullName }
+          )
+
+          "files<<EOF" >> $env:GITHUB_OUTPUT
+          $files | ForEach-Object { $_ } >> $env:GITHUB_OUTPUT
+          "EOF" >> $env:GITHUB_OUTPUT
+
+          foreach ($apk in $apks) {
+            Write-Host "APK found: $($apk.FullName)"
           }
 
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: RiverGuard-Mobile-APK-v${{ github.run_number }}
-          path: RiverGuard/mobile/android/app/build/outputs/apk/**/*.apk
-          if-no-files-found: error
-
-      - name: Create GitHub Release and upload APK
-        if: github.event_name != 'pull_request'
+      - name: Create GitHub Release and Upload APK
         uses: softprops/action-gh-release@v2
         with:
           tag_name: RiverGuard-Mobile-v${{ github.run_number }}
           name: RiverGuard Mobile v${{ github.run_number }}
           body: |
-            Automated RiverGuard mobile APK build.
+            ## RiverGuard Mobile
 
-            Built from commit: ${{ github.sha }}
-          files: RiverGuard/mobile/android/app/build/outputs/apk/**/*.apk
+            Automatically built Android APK.
+
+            - Commit: ${{ github.sha }}
+            - Build: ${{ github.run_number }}
+          files: ${{ steps.find-apk.outputs.files }}
           fail_on_unmatched_files: true
           generate_release_notes: true
