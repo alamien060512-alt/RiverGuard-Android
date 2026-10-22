@@ -1,3 +1,4 @@
+
 name: Build Mobile APK
 
 on:
@@ -8,6 +9,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -20,16 +24,51 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: zulu
           java-version: '21'
 
       - name: Run build script
         working-directory: RiverGuard/mobile
         run: .\build-apk.bat
 
-      # Target the specific compiled .apk files inside the generated Android build folder
+      - name: Verify APK output
+        id: apk
+        shell: pwsh
+        run: |
+          $apks = @(
+            Get-ChildItem `
+              -Path "RiverGuard/mobile/android/app/build/outputs/apk" `
+              -Filter "*.apk" `
+              -Recurse `
+              -File
+          )
+
+          if ($apks.Count -eq 0) {
+            Write-Error "No APK found. Check build-apk.bat and the Android build output."
+            exit 1
+          }
+
+          $apks | ForEach-Object {
+            Write-Host "Found APK: $($_.FullName)"
+          }
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: RiverGuard-Mobile-APK-v${{ github.run_number }}
           path: RiverGuard/mobile/android/app/build/outputs/apk/**/*.apk
+          if-no-files-found: error
+
+      - name: Create GitHub Release and upload APK
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: RiverGuard-Mobile-v${{ github.run_number }}
+          name: RiverGuard Mobile v${{ github.run_number }}
+          body: |
+            Automated RiverGuard mobile APK build.
+
+            Built from commit: ${{ github.sha }}
+          files: RiverGuard/mobile/android/app/build/outputs/apk/**/*.apk
+          fail_on_unmatched_files: true
+          generate_release_notes: true
