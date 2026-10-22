@@ -1,4 +1,4 @@
-name: Build 
+name: Build Mobile APK
 
 on:
   push:
@@ -12,8 +12,6 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    permissions:
-      contents: write 
 
     steps:
       - name: Checkout repository
@@ -29,12 +27,9 @@ jobs:
         working-directory: RiverGuard/mobile
         run: .\build-apk.bat
 
-      
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1
+      # Target the specific compiled .apk files inside the generated Android build folder
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
         with:
-          artifacts: "RiverGuard/mobile/android/app/build/outputs/apk/**/*.apk"
-          tag: "v${{ github.run_number }}"
-          name: "Release v${{ github.run_number }}"
-          body: "Automated build for version ${{ github.run_number }}"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: RiverGuard-Mobile-APK-v${{ github.run_number }}
+          path: RiverGuard/mobile/android/app/build/outputs/apk/**/*.apk
