@@ -1,0 +1,14 @@
+{
+  "appId": "com.riverguard.v2",
+  "appName": "RiverGuard V2",
+  "webDir": "web",
+  "backgroundColor": "#0c2026",
+  "loggingBehavior": "none",
+  "server": {
+    "androidScheme": "https",
+    "allowNavigation": []
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}

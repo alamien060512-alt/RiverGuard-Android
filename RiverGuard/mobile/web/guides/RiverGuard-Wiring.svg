@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="770" height="425" preserveAspectRatio="xMinYMin meet" viewBox="0 0 770 425" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="770" height="425"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-425)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="770" height="425" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<rect x="8" y="28" width="182" height="371" rx="14" ry="14" style="stroke: rgb(80%,85%,86%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="23" y="375" style="font-family: Helvetica-Bold; font-size: 16px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,750) scale(1,-1)">NodeMCU-32S</text>
+			<text x="23" y="356" style="font-family: Helvetica; font-size: 11px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,712) scale(1,-1)">USB-C from laptop</text>
+			<text x="23" y="338" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,676) scale(1,-1)">Use GPIO numbers,</text>
+			<text x="23" y="324" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,648) scale(1,-1)">not header positions.</text>
+			<text x="23" y="43" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,86) scale(1,-1)">GND -&gt; common GND</text>
+			<text x="215" y="385" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,770) scale(1,-1)">Power: ESP32 via USB-C; regulated 5 V for the two 5 V sensors.</text>
+			<text x="215" y="369" style="font-family: Helvetica; font-size: 10px;fill: rgb(27%,38%,41%); stroke:none;" transform="translate(0,738) scale(1,-1)">Never join 5 V to 3V3. See page 2 for the supply and meter checks.</text>
+			<text x="23" y="305" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,610) scale(1,-1)">GPIO34  &lt;- pH A</text>
+			<circle cx="190" cy="300" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<text x="23" y="225" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,450) scale(1,-1)">GPIO35  &lt;- turbidity A</text>
+			<circle cx="190" cy="220" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<text x="23" y="145" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,290) scale(1,-1)">GPIO27  &lt;-&gt; DS18B20 DQ</text>
+			<circle cx="190" cy="140" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<text x="23" y="100" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,200) scale(1,-1)">GPIO5    -&gt; TRIG</text>
+			<circle cx="190" cy="95" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<text x="23" y="69" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,138) scale(1,-1)">GPIO18  &lt;- ECHO</text>
+			<circle cx="190" cy="64" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<rect x="555" y="274" width="205" height="73" rx="10" ry="10" style="stroke: rgb(80%,85%,86%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="567" y="327" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,654) scale(1,-1)">SEN0161-V2 / pH</text>
+			<text x="567" y="309" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,47%,39%); stroke:none;" transform="translate(0,618) scale(1,-1)">VCC (+) -&gt; ESP32 3V3</text>
+			<text x="567" y="294" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,588) scale(1,-1)">GND -&gt; common GND</text>
+			<text x="567" y="281" style="font-family: Helvetica; font-size: 8.8px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,562) scale(1,-1)">A (0-3.0 V) -&gt; GPIO34; probe -&gt; BNC</text>
+			<path d="M 190,300 L 555,300 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<text x="300" y="310" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,620) scale(1,-1)">Direct signal; verify V2 board</text>
+			<rect x="555" y="194" width="205" height="73" rx="10" ry="10" style="stroke: rgb(80%,85%,86%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="567" y="247" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,494) scale(1,-1)">SEN0189 / cloudiness</text>
+			<text x="567" y="229" style="font-family: Helvetica; font-size: 10px;fill: rgb(63%,27%,21%); stroke:none;" transform="translate(0,458) scale(1,-1)">VCC -&gt; regulated 5 V rail</text>
+			<text x="567" y="214" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,428) scale(1,-1)">GND -&gt; common GND</text>
+			<text x="567" y="201" style="font-family: Helvetica; font-size: 8.8px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,402) scale(1,-1)">Select ANALOG mode; A -&gt; divider</text>
+			<path d="M 190,220 L 405,220 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<circle cx="365" cy="220" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<rect x="405" y="215" width="48" height="10" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="403" y="231" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,462) scale(1,-1)">10k ohm</text>
+			<path d="M 453,220 L 555,220 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<text x="465" y="232" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,464) scale(1,-1)">sensor A</text>
+			<path d="M 365,220 L 365,195 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="360" y="173" width="10" height="22" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="375" y="180" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,360) scale(1,-1)">15k ohm</text>
+			<path d="M 365,173 L 365,167 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.3;"/>
+			<path d="M 358,167 L 372,167 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<path d="M 360.5,163 L 369.5,163 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<path d="M 363,159 L 367,159 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<text x="219" y="234" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,468) scale(1,-1)">ADC junction</text>
+			<text x="215" y="180" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,360) scale(1,-1)">4.5 V in -&gt; 2.7 V here</text>
+			<rect x="555" y="114" width="205" height="73" rx="10" ry="10" style="stroke: rgb(80%,85%,86%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="567" y="167" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,334) scale(1,-1)">DS18B20 / temperature</text>
+			<text x="567" y="149" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,47%,39%); stroke:none;" transform="translate(0,298) scale(1,-1)">VDD -&gt; ESP32 3V3</text>
+			<text x="567" y="134" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,268) scale(1,-1)">GND -&gt; common GND</text>
+			<text x="567" y="121" style="font-family: Helvetica; font-size: 8.8px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,242) scale(1,-1)">Use cable labels / supplier pinout</text>
+			<path d="M 190,140 L 555,140 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<circle cx="485" cy="140" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<path d="M 485,140 L 485,155 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="480" y="155" width="10" height="22" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="495" y="162" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,324) scale(1,-1)">4.7k ohm</text>
+			<path d="M 485,177 L 485,187 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<text x="460" y="191" style="font-family: Helvetica; font-size: 9px;fill: rgb(9%,47%,39%); stroke:none;" transform="translate(0,382) scale(1,-1)">ESP32 3V3</text>
+			<rect x="555" y="21" width="205" height="73" rx="10" ry="10" style="stroke: rgb(80%,85%,86%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="567" y="74" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,148) scale(1,-1)">JSN-SR04T / distance</text>
+			<text x="567" y="56" style="font-family: Helvetica; font-size: 10px;fill: rgb(63%,27%,21%); stroke:none;" transform="translate(0,112) scale(1,-1)">VCC -&gt; verified 5 V rail</text>
+			<text x="567" y="41" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,82) scale(1,-1)">GND -&gt; common GND</text>
+			<text x="567" y="28" style="font-family: Helvetica; font-size: 8.8px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,56) scale(1,-1)">Confirm revision + trigger/echo mode</text>
+			<path d="M 190,95 L 535,95 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<path d="M 535,95 L 535,76 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<path d="M 535,76 L 555,76 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<text x="380" y="102" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,204) scale(1,-1)">TRIG: verify 3.3 V accepted</text>
+			<path d="M 190,64 L 405,64 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="405" y="59" width="48" height="10" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="403" y="75" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,150) scale(1,-1)">10k ohm</text>
+			<path d="M 453,64 L 555,64 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<circle cx="365" cy="64" r="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(39%,32%,67%); fill-rule: evenodd;"/>
+			<path d="M 365,64 L 365,50 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="360" y="28" width="10" height="22" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="375" y="35" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,70) scale(1,-1)">15k ohm</text>
+			<path d="M 365,28 L 365,22 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.3;"/>
+			<path d="M 358,22 L 372,22 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<path d="M 360.5,18 L 369.5,18 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<path d="M 363,14 L 367,14 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 1.2;"/>
+			<text x="230" y="77" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,154) scale(1,-1)">GPIO junction</text>
+			<text x="466" y="76" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,152) scale(1,-1)">ECHO</text>
+			<text x="215" y="35" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,70) scale(1,-1)">5.0 V in -&gt; 3.0 V here</text>
+			<text x="10" y="407" style="font-family: Helvetica; font-size: 10px;fill: rgb(27%,38%,41%); stroke:none;" transform="translate(0,814) scale(1,-1)">Signals shown below. Each sensor card also lists its power and ground connections.</text>
+			<text x="10" y="2" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,4) scale(1,-1)">All GND symbols, sensor GND, ESP32 GND and 5 V supply negative must join.</text>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="770" height="425" preserveAspectRatio="xMinYMin meet" viewBox="0 0 770 425" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="770" height="425"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-425)" style="clip-path: url(#clip)">
+		<g transform="">
+			<text x="225" y="402" style="font-family: Helvetica-Bold; font-size: 15px;fill: rgb(39%,32%,67%); stroke:none;" transform="translate(0,804) scale(1,-1)">H &gt;= W + B + M</text>
+			<text x="225" y="384" style="font-family: Helvetica; font-size: 10px;fill: rgb(27%,38%,41%); stroke:none;" transform="translate(0,768) scale(1,-1)">B = actual minimum distance; M = added mounting margin</text>
+			<path d="M 18,65 L 744,65 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 3;"/>
+			<text x="22" y="45" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,90) scale(1,-1)">Level, load-rated table / spill tray</text>
+			<path d="M 110,65 L 110,375 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 9;"/>
+			<path d="M 110,375 L 445,375 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 7;"/>
+			<path d="M 55,65 L 110,115 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 3;"/>
+			<path d="M 165,65 L 110,115 Z" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 3;"/>
+			<text x="10" y="190" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,380) scale(1,-1)">Separate</text>
+			<text x="10" y="176" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,352) scale(1,-1)">secured stand</text>
+			<text x="10" y="162" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,324) scale(1,-1)">Two clamps</text>
+			<rect x="25" y="288" width="172" height="78" rx="10" ry="10" style="stroke: rgb(80%,85%,86%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="37" y="344" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,688) scale(1,-1)">Dry electronics box</text>
+			<text x="37" y="326" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,652) scale(1,-1)">ESP32 + interface boards</text>
+			<text x="37" y="309" style="font-family: Helvetica; font-size: 10px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,618) scale(1,-1)">above fill / splash zone</text>
+			<rect x="239" y="76" width="382" height="207" style="stroke: rgb(8%,19%,22%); stroke-linecap: butt; stroke-width: 2; fill: none; fill-rule: evenodd;"/>
+			<rect x="242" y="79" width="376" height="133" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(84%,93%,92%); fill-rule: evenodd;"/>
+			<path d="M 242,212 L 618,212 Z" style="stroke: rgb(9%,47%,39%); stroke-linecap: butt; stroke-width: 2;"/>
+			<path d="M 242,235 L 618,235 Z" style="stroke: rgb(63%,27%,21%); stroke-linecap: butt; stroke-width: 1.2; stroke-dasharray: 5, 4;"/>
+			<text x="245" y="242" style="font-family: Helvetica; font-size: 9px;fill: rgb(63%,27%,21%); stroke:none;" transform="translate(0,484) scale(1,-1)">Marked maximum fill line</text>
+			<text x="245" y="84" style="font-family: Helvetica; font-size: 9px;fill: rgb(27%,38%,41%); stroke:none;" transform="translate(0,168) scale(1,-1)">Chosen zero-height plane</text>
+			<rect x="421" y="350" width="38" height="22" rx="4" ry="4" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<text x="472" y="356" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(39%,32%,67%); stroke:none;" transform="translate(0,712) scale(1,-1)">JSN face points down</text>
+			<path d="M 440,350 L 396,212 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 5, 4;"/>
+			<path d="M 440,350 L 484,212 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1; stroke-dasharray: 5, 4;"/>
+			<text x="362" y="296" style="font-family: Helvetica; font-size: 10px;fill: rgb(39%,32%,67%); stroke:none;" transform="translate(0,592) scale(1,-1)">Keep the beam clear</text>
+			<path d="M 197,323 L 208,323 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 208,323 L 208,270 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 208,270 L 225,270 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 225,270 L 225,300 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 225,300 L 300,300 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="8" y="264" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,528) scale(1,-1)">Cable glands</text>
+			<text x="8" y="250" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,500) scale(1,-1)">Drip loops</text>
+			<text x="8" y="236" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,472) scale(1,-1)">below entries</text>
+			<path d="M 285,283 L 285,181 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="279" y="126" width="12" height="55" rx="4" ry="4" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<path d="M 342,283 L 342,176 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="337" y="138" width="10" height="38" rx="3" ry="3" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="250" y="112" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,224) scale(1,-1)">pH tip</text>
+			<text x="322" y="122" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,244) scale(1,-1)">DS18B20</text>
+			<path d="M 525,283 L 525,278 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="511" y="245" width="28" height="33" rx="4" ry="4" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,96%); fill-rule: evenodd;"/>
+			<rect x="517" y="209" width="16" height="36" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="390" y="170" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,340) scale(1,-1)">SEN0189: permitted</text>
+			<text x="390" y="156" style="font-family: Helvetica; font-size: 8.5px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,312) scale(1,-1)">sensing section only</text>
+			<text x="500" y="310" style="font-family: Helvetica; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,620) scale(1,-1)">Upper body dry</text>
+			<path d="M 525,209 L 525,184 Z" style="stroke: rgb(27%,38%,41%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 525,184 L 482,184 Z" style="stroke: rgb(27%,38%,41%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 440,372 L 440,375 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 440,375 L 197,375 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 197,375 L 197,350 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 655,79 L 655,350 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 651,79 L 659,79 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 651,350 L 659,350 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 638,79 L 638,235 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1;"/>
+			<path d="M 634,79 L 642,79 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<path d="M 634,235 L 642,235 Z" style="stroke: rgb(39%,32%,67%); stroke-linecap: butt; stroke-width: 1.5;"/>
+			<text x="670" y="320" style="font-family: Helvetica; font-size: 9px;fill: rgb(39%,32%,67%); stroke:none;" transform="translate(0,640) scale(1,-1)">H: face to zero</text>
+			<text x="670" y="180" style="font-family: Helvetica; font-size: 9px;fill: rgb(39%,32%,67%); stroke:none;" transform="translate(0,360) scale(1,-1)">W: max water</text>
+			<text x="670" y="166" style="font-family: Helvetica; font-size: 9px;fill: rgb(39%,32%,67%); stroke:none;" transform="translate(0,332) scale(1,-1)">height</text>
+			<text x="225" y="18" style="font-family: Helvetica-Bold; font-size: 9px;fill: rgb(8%,19%,22%); stroke:none;" transform="translate(0,36) scale(1,-1)">Tank carries no stand or enclosure load. Mains adapters and laptop stay away from spills.</text>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#18363E</color>
+    <color name="colorPrimaryDark">#10272E</color>
+    <color name="colorAccent">#B9A9F4</color>
+    <color name="riverguard_background">#10272E</color>
+</resources>
