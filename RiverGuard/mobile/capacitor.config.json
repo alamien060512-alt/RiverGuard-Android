@@ -1,7 +1,0 @@
-{
-  "appId": "com.riverguard.app",
-  "appName": "RiverGuard",
-  "webDir": "www",
-  "server": { "allowNavigation": ["*"] },
-  "android": { "allowMixedContent": true }
-}
